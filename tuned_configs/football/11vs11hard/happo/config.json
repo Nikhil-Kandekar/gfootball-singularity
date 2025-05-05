@@ -68,7 +68,7 @@
             "log_interval": 5,
             "model_dir": null,
             "n_rollout_threads": 50,
-            "num_env_steps": 50000000,
+            "num_env_steps": 1000000000,
             "use_linear_lr_decay": true,
             "use_valuenorm": true,
             "use_proper_time_limits": true
@@ -80,24 +80,24 @@
             72
         ],
         "dump_frequency": 100000,
-        "env_name": "academy_counterattack_hard",
+        "env_name": "11_vs_11_hard_stochastic",
         "extra_players": null,
-        "logdir": "./logs",
-        "number_of_left_players_agent_controls": 4,
+        "logdir": "./logs/11v11hard1bn",
+        "number_of_left_players_agent_controls": 11,
         "number_of_right_players_agent_controls": 0,
         "other_config_options": null,
         "render": false,
         "representation": "simple115v2",
         "rewards": "scoring,checkpoints",
         "stacked": false,
-        "write_full_episode_dumps": false,
-        "write_goal_dumps": true,
+        "write_full_episode_dumps": true,
+        "write_goal_dumps": false,
         "write_video": true
     },
     "main_args": {
         "algo": "happo",
         "env": "football",
-        "exp_name": "report",
+        "exp_name": "11v11hardgfootball",
         "load_config": ""
     }
 }
