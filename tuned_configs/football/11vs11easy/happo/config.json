@@ -2,17 +2,17 @@
     "algo_args": {
         "algo": {
             "action_aggregation": "prod",
-            "actor_num_mini_batch": 2,
+            "actor_num_mini_batch": 4,
             "clip_param": 0.2,
-            "critic_epoch": 15,
-            "critic_num_mini_batch": 2,
-            "entropy_coef": 0.01,
+            "critic_epoch": 10,
+            "critic_num_mini_batch": 4,
+            "entropy_coef": 0.02,
             "fixed_order": false,
-            "gae_lambda": 0.95,
+            "gae_lambda": 0.90,
             "gamma": 0.99,
-            "huber_delta": 10.0,
-            "max_grad_norm": 10.0,
-            "ppo_epoch": 15,
+            "huber_delta": 5.0,
+            "max_grad_norm": 5.0,
+            "ppo_epoch": 10,
             "share_param": false,
             "use_clipped_value_loss": true,
             "use_gae": true,
@@ -23,36 +23,38 @@
         },
         "device": {
             "cuda": true,
-            "cuda_deterministic": true,
-            "torch_threads": 4
+            "cuda_deterministic": false,
+            "torch_threads": 16
         },
         "eval": {
             "eval_episodes": 100,
-            "n_eval_rollout_threads": 50,
+            "n_eval_rollout_threads": 100,
             "use_eval": true
         },
         "logger": {
             "log_dir": "./results"
         },
         "model": {
-            "activation_func": "relu",
-            "critic_lr": 0.0005,
-            "data_chunk_length": 10,
+            "activation_func": "tanh",
+            "critic_lr": 0.001,
+            "data_chunk_length": 20,
             "gain": 0.01,
             "hidden_sizes": [
-                64,
+                256,
+                256,
+                128,
                 64
             ],
             "initialization_method": "orthogonal_",
-            "lr": 0.0005,
+            "lr": 0.001,
             "opti_eps": 1e-05,
-            "recurrent_n": 1,
-            "std_x_coef": 1,
-            "std_y_coef": 0.5,
+            "recurrent_n": 2,
+            "std_x_coef": 0.8,
+            "std_y_coef": 0.2,
             "use_feature_normalization": true,
             "use_naive_recurrent_policy": false,
-            "use_recurrent_policy": false,
-            "weight_decay": 0
+            "use_recurrent_policy": true,
+            "weight_decay": 0.01
         },
         "render": {
             "render_episodes": 10,
@@ -67,9 +69,9 @@
             "eval_interval": 10,
             "log_interval": 5,
             "model_dir": null,
-            "n_rollout_threads": 50,
+            "n_rollout_threads": 100,
             "num_env_steps": 500000000,
-            "use_linear_lr_decay": true,
+            "use_linear_lr_decay": false,
             "use_valuenorm": true,
             "use_proper_time_limits": true
         }
