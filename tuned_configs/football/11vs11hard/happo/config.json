@@ -28,7 +28,7 @@
         },
         "eval": {
             "eval_episodes": 100,
-            "n_eval_rollout_threads": 50,
+            "n_eval_rollout_threads": 5,
             "use_eval": true
         },
         "logger": {
